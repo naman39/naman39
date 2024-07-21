@@ -30,10 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Step 2: Push the generated SVG to a specified branch
-      - name: Push to output branch
-        uses: actions/checkout@v2
-      - run: |
+      # Step 2: Prepare files for deployment
+      - name: Prepare files
+        run: |
           mkdir -p dist
           cp dist/github-contribution-grid-snake.svg dist/github-contribution-grid-snake-dark.svg output/
         env:
