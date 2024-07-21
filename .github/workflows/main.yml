@@ -1,48 +1,24 @@
-name: Generate Animation
+              
+- name: generate-snake-game-from-github-contribution-grid
+  uses: Platane/snk@v3.2.0
 
-on:
-  # Run automatically every 12 hours
-  schedule:
-    - cron: "0 */12 * * *"
-  
-  # Manually trigger the job
-  workflow_dispatch:
-  
-  # Run on every push to the main branch
-  push:
-    branches:
-      - main
 
-jobs:
-  generate:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    
-    steps:
-      # Step 1: Generate the snake animation SVG
-      - name: Generate GitHub contribution grid snake SVG
-        uses: Platane/snk@master
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+- uses: Platane/snk@v3
+  with:
+    # github user name to read the contribution graph from (**required**)
+    # using action context var `github.repository_owner` or specified user
+    github_user_name: ${{ github.repository_owner }}
 
-      # Step 2: Prepare files for deployment
-      - name: Prepare files
-        run: |
-          mkdir -p dist
-          cp dist/github-contribution-grid-snake.svg dist/github-contribution-grid-snake-dark.svg output/
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Step 3: Deploy to GitHub Pages or another branch
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          branch: output
-          folder: output
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # list of files to generate.
+    # one file per line. Each output can be customized with options as query string.
+    #
+    #  supported options:
+    #  - palette:     A preset of color, one of [github, github-dark, github-light]
+    #  - color_snake: Color of the snake
+    #  - color_dots:  Coma separated list of dots color.
+    #                 The first one is 0 contribution, then it goes from the low contribution to the highest.
+    #                 Exactly 5 colors are expected.
+    outputs: |
+      dist/github-snake.svg
+      dist/github-snake-dark.svg?palette=github-dark
+      dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
