@@ -16,8 +16,6 @@ Here are some ideas to get you started:
 <h1 align="center">Hi 👋, I'm Naman</h1>
 <h3 align="center">A student interested to learn more in Machine Learning</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=naman39&label=Profile%20views&color=0e75b6&style=flat" alt="naman39" /> </p>
-
 - 🌱 I’m currently learning **Machine Learning and Artificial Intelligence**
 
 <h3 align="left">Connect with me: <a href="https://www.linkedin.com/in/naman--bhandari/"> </a></h3>
