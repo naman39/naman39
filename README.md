@@ -18,7 +18,7 @@ Here are some ideas to get you started:
 
 - 🌱 I’m currently learning **Machine Learning and Artificial Intelligence**
 
-<h3 align="left">Connect with me:</h3>
+<h3 align="left">Reach out to me:</h3>
 <p align="left">
 <a href="https://linkedin.com/in/naman--bhandari" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="naman--bhandari" height="30" width="40" /></a>
 </p>
