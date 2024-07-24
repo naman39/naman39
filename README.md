@@ -39,3 +39,86 @@ Here are some ideas to get you started:
   />
 </picture>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack a Mole Game</title>
+    <style>
+        body {
+            background-color: white;
+            transition: background-color 0.5s ease;
+        }
+        
+        .dark-mode {
+            background-color: black;
+        }
+        
+        .mole {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+        
+        .dark-mode .score {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="score">Score: 0</div>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+    <script>
+        let score = 0;
+        let moles = [];
+        let darkMode = false;
+        
+        // Create moles
+        for (let i = 0; i < 10; i++) {
+            const mole = document.createElement('div');
+            mole.classList.add('mole');
+            mole.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
+            mole.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
+            mole.addEventListener('click', () => {
+                score++;
+                document.querySelector('.score').innerText = `Score: ${score}`;
+                mole.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
+                mole.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
+            });
+            document.body.appendChild(mole);
+            moles.push(mole);
+        }
+        
+        // Toggle dark mode
+        document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+            darkMode = !darkMode;
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+        
+        // Move moles around
+        setInterval(() => {
+            moles.forEach(mole => {
+                mole.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
+                mole.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
