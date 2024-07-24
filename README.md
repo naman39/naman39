@@ -14,9 +14,9 @@ Here are some ideas to get you started:
 -->
 
 <h1 align="center">Hi 👋, I'm Naman</h1>
-<h3 align="center">A student interested to learn more in Machine Learning</h3>
+<h3 align="center">A student interested to learn more about Artificial Intelligence</h3>
 
-- 🌱 I’m currently learning **Machine Learning and Artificial Intelligence**
+- 🌱 I’m currently learning **RAG Apps and Chatbots**
 
 <h3 align="left">Connect with me <a href="https://linkedin.com/in/naman--bhandari" target="blank"><img align="center" src="https://github.com/user-attachments/assets/a583e125-570c-46a2-a225-ec4ce24373fc" alt="naman--bhandari" height="30" width="40" /></a></h3>
 
